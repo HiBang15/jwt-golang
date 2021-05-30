@@ -4,4 +4,7 @@ import "github.com/gin-gonic/gin"
 
 func main() {
 	router := gin.Default()
+	router.POST("/login")
+
+	router.Run("localhost:8080")
 }
