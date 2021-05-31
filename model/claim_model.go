@@ -3,6 +3,7 @@ package model
 import (
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
+	"strings"
 	"time"
 )
 
@@ -21,4 +22,8 @@ func (claims JwtClaims)Valid() error  {
 		return nil
 	}
 	return fmt.Errorf("Token invalid!")
+}
+
+func (claims JwtClaims)VerifyAudience(origin string) bool {
+	return strings.Compare(claims.Audience, origin) == 0
 }

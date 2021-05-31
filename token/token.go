@@ -1,6 +1,7 @@
 package token
 
 import (
+	"fmt"
 	"github.com/HiBang15/jwt-golang/model"
 	"github.com/dgrijalva/jwt-go"
 	"log"
@@ -25,4 +26,35 @@ func GenerateToken(claims *model.JwtClaims, expirationTime time.Time) (string, e
 		return "", err
 	}
 	return tokenString, nil
+}
+
+func VerifyToken(tokenString, origin string) (bool, *model.JwtClaims)  {
+	claims := &model.JwtClaims{}
+	token, _ := getTokenFromString(tokenString, claims)
+	if token.Valid {
+		if e := claims.Valid(); e == nil {
+			return true, claims
+		}
+	}
+	return false, claims
+}
+
+func GetClaims(tokenString string) model.JwtClaims  {
+	claims := &model.JwtClaims{}
+
+	_, err := getTokenFromString(tokenString, claims)
+	if err == nil {
+		return *claims
+	}
+	return *claims
+}
+
+func getTokenFromString(tokenString string, claims *model.JwtClaims) (*jwt.Token, error) {
+	return jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
+		}
+
+		return []byte(JWTPrivateToken), nil
+	} )
 }

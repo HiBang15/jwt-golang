@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0300c72-75f7-4176-b71e-31139e95a364" name="Default Changelist" comment="" />
+    <list default="true" id="d0300c72-75f7-4176-b71e-31139e95a364" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/handler/product_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/authorization.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/login_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/login_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/claim_model.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/claim_model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/error_models.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/error_models.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/token/token.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

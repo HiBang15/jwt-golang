@@ -8,18 +8,11 @@ import (
 	"time"
 )
 
-type Response struct {
-	Data    string `json:"data"`
-	Status  int    `json:"status"`
-	Message string `json:"message"`
-	Error   string `json:"error"`
-}
-
 func LoginHandler(context *gin.Context) {
 	var loginObj model.LoginRequest
 
 	if err := context.ShouldBindJSON(&loginObj); err != nil {
-		context.AboutWithStatusJSON(http.StatusBadRequest, Response{
+		context.AbortWithStatusJSON(http.StatusBadRequest, model.Response{
 			Status:  http.StatusBadRequest,
 			Message: "Cannot Login!",
 			Error:   "Username or password fail with err",
@@ -38,7 +31,7 @@ func LoginHandler(context *gin.Context) {
 	tokenString, err := token.GenerateToken(claims, expirationTime)
 
 	if err != nil {
-		context.AboutWithStatusJSON(http.StatusBadRequest, Response{
+		context.AbortWithStatusJSON(http.StatusBadRequest, model.Response{
 			Status:  http.StatusBadRequest,
 			Message: "Cannot Login!",
 			Error:   "Username or password fail with err",
@@ -46,7 +39,7 @@ func LoginHandler(context *gin.Context) {
 		return
 	}
 
-	context.AboutWithStatusJSON(http.StatusBadRequest, Response{
+	context.AbortWithStatusJSON(http.StatusBadRequest, model.Response{
 		Status:  http.StatusOK,
 		Message: "Ok!",
 		Data:    tokenString,
